@@ -11,6 +11,7 @@
 		280343EE2913117900D48005 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280343ED2913117900D48005 /* ContentView.swift */; };
 		280343F02913117A00D48005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280343EF2913117A00D48005 /* Assets.xcassets */; };
 		280343F32913117A00D48005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280343F22913117A00D48005 /* Preview Assets.xcassets */; };
+		280343FB291311EA00D48005 /* PlexKit in Frameworks */ = {isa = PBXBuildFile; productRef = 280343FA291311EA00D48005 /* PlexKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280343FB291311EA00D48005 /* PlexKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = whatToWatch;
+			packageProductDependencies = (
+				280343FA291311EA00D48005 /* PlexKit */,
+			);
 			productName = whatToWatch;
 			productReference = 280343E82913117900D48005 /* whatToWatch.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 280343DF2913117900D48005;
+			packageReferences = (
+				280343F9291311EA00D48005 /* XCRemoteSwiftPackageReference "PlexKit" */,
+			);
 			productRefGroup = 280343E92913117900D48005 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -339,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		280343F9291311EA00D48005 /* XCRemoteSwiftPackageReference "PlexKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lcharlick/PlexKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		280343FA291311EA00D48005 /* PlexKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 280343F9291311EA00D48005 /* XCRemoteSwiftPackageReference "PlexKit" */;
+			productName = PlexKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 280343E02913117900D48005 /* Project object */;
 }

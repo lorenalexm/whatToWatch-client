@@ -11,7 +11,6 @@ import SwiftUI
 struct whatToWatchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
         }
     }
 }

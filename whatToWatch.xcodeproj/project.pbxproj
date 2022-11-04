@@ -25,6 +25,7 @@
 		280343FD291312EC00D48005 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2803440029131A3600D48005 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		28D70958291344680008A96D /* RoundedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButtonView.swift; path = whatToWatch/Views/RoundedButtonView.swift; sourceTree = SOURCE_ROOT; };
+		28D7095A2913481C0008A96D /* PlexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlexClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 				280343FF29131A2900D48005 /* ViewModel */,
 				280343FC291312CE00D48005 /* Views */,
 				280343EB2913117900D48005 /* whatToWatchApp.swift */,
+				28D7095A2913481C0008A96D /* PlexClient.swift */,
 				280343EF2913117A00D48005 /* Assets.xcassets */,
 				280343F12913117A00D48005 /* Preview Content */,
 			);
@@ -172,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2803440129131A3600D48005 /* LoginViewModel.swift in Sources */,
+				28D7095B2913481C0008A96D /* PlexClient.swift in Sources */,
 				280343FE291312EC00D48005 /* LoginView.swift in Sources */,
 				28D70959291344680008A96D /* RoundedButtonView.swift in Sources */,
 				280343EC2913117900D48005 /* whatToWatchApp.swift in Sources */,

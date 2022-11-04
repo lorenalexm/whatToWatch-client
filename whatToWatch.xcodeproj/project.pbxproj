@@ -26,6 +26,8 @@
 		2803440029131A3600D48005 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		28D70958291344680008A96D /* RoundedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButtonView.swift; path = whatToWatch/Views/RoundedButtonView.swift; sourceTree = SOURCE_ROOT; };
 		28D7095A2913481C0008A96D /* PlexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlexClient.swift; sourceTree = "<group>"; };
+		28D70961291362A60008A96D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		28D70962291364250008A96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				280343FF29131A2900D48005 /* ViewModel */,
+				28D70962291364250008A96D /* Info.plist */,
 				280343FC291312CE00D48005 /* Views */,
 				280343EB2913117900D48005 /* whatToWatchApp.swift */,
 				28D7095A2913481C0008A96D /* PlexClient.swift */,
 				280343EF2913117A00D48005 /* Assets.xcassets */,
 				280343F12913117A00D48005 /* Preview Content */,
+				28D70961291362A60008A96D /* Secrets.xcconfig */,
 			);
 			path = whatToWatch;
 			sourceTree = "<group>";
@@ -186,6 +190,7 @@
 /* Begin XCBuildConfiguration section */
 		280343F42913117A00D48005 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28D70961291362A60008A96D /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -246,6 +251,7 @@
 		};
 		280343F52913117A00D48005 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28D70961291362A60008A96D /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -309,6 +315,7 @@
 				DEVELOPMENT_TEAM = WU9C337B2P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = whatToWatch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -338,6 +345,7 @@
 				DEVELOPMENT_TEAM = WU9C337B2P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = whatToWatch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

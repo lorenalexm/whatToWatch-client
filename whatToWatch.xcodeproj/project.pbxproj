@@ -14,6 +14,7 @@
 		280343FE291312EC00D48005 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280343FD291312EC00D48005 /* LoginView.swift */; };
 		28D7095729132C290008A96D /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 28D7095629132C290008A96D /* AlertToast */; };
 		28D70959291344680008A96D /* RoundedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D70958291344680008A96D /* RoundedButtonView.swift */; };
+		28D7095B2913481C0008A96D /* PlexClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7095A2913481C0008A96D /* PlexClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

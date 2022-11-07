@@ -84,6 +84,7 @@ struct SignInView: View {
                 }
             }
         }
+        .navigationTitle("Sign-in")
         .padding(.horizontal, 40)
         .toast(isPresenting: $toastShowing, duration: 2.0, alert: {
             AlertToast(displayMode: .banner(.slide), type: toastType, title: toastTitle, subTitle: toastSubTitle)

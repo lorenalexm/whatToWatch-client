@@ -15,6 +15,7 @@ enum PlexClientError: Error {
     case signInFailed
     case notSignedIn
     case noServersFound
+    case invalidServerAddress
 }
 
 extension PlexClientError: LocalizedError {
@@ -30,6 +31,8 @@ extension PlexClientError: LocalizedError {
             return "User is not currently signed in to Plex."
         case .noServersFound:
             return "Unable to find any servers associated with the user."
+        case .invalidServerAddress:
+            return "Server resource provided an invalid server address."
         }
     }
 }
@@ -45,6 +48,7 @@ class PlexClient: ObservableObject {
         guard let clientId = Bundle.main.infoDictionary?["CLIENT_ID"] as? String else {
             fatalError("Unable to aquire CLIENT_ID from Bundle!")
         }
+        
         let clientInfo = Plex.ClientInfo(clientIdentifier: clientId, product: "whatToWatch", version: "0.1.1")
         client = Plex(sessionConfiguration: .default, clientInfo: clientInfo)
         loadUserFromDefaults()
@@ -85,6 +89,7 @@ class PlexClient: ObservableObject {
             print("Failed to retreive a PlexUser object from UserDefaults.")
             return
         }
+        
         user = try? JSONDecoder().decode(PlexUser.self, from: savedUser)
     }
     
@@ -96,6 +101,7 @@ class PlexClient: ObservableObject {
             completionHandler(.failure(.notSignedIn))
             return
         }
+        
         client.request(Plex.ServiceRequest.Resources(), token: user.authToken) { result in
             switch result {
             case .success(let response):
@@ -107,6 +113,34 @@ class PlexClient: ObservableObject {
                 completionHandler(.success(servers))
             case .failure(let error):
                 print("Fetching servers failed with the error: \(error.localizedDescription)")
+                completionHandler(.failure(.failedClientRequest))
+            }
+        }
+    }
+    
+    
+    /// Attempts to load the libraries from a specific server.
+    /// - Parameters:
+    ///   - server: The `PlexResource` representing the server
+    ///   - completionHandler: Provides either an array of `PlexLibrary` objects or a `PlexClientError` if unable to fetch.
+    func listLibraries(from server: PlexResource, completionHandler: @escaping (Result<[PlexLibrary], PlexClientError>) -> Void) {
+        guard let user else {
+            completionHandler(.failure(.notSignedIn))
+            return
+        }
+        guard let serverAddress = server.publicAddress else {
+            completionHandler(.failure(.invalidServerAddress))
+            return
+        }
+        
+        client.request(Plex.Request.Libraries(), from: URL(string: serverAddress)!, token: user.authToken) { result in
+            switch result {
+            case .success(let response):
+                let libraries = response.mediaContainer.directory.filter { $0.type == .movie}
+                completionHandler(.success(libraries))
+                
+            case .failure(let error):
+                print("Fetching libraries failed with the error: \(error.localizedDescription)")
                 completionHandler(.failure(.failedClientRequest))
             }
         }

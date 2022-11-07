@@ -9,8 +9,14 @@ import SwiftUI
 
 @main
 struct whatToWatchApp: App {
+    // MARK: - Properties.
+    private let plexClient = PlexClient()
+    
+    // MARK: - View declaration.
     var body: some Scene {
         WindowGroup {
+            SignInView()
+                .environmentObject(plexClient)
         }
     }
 }

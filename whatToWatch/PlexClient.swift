@@ -47,6 +47,7 @@ class PlexClient: ObservableObject {
         }
         let clientInfo = Plex.ClientInfo(clientIdentifier: clientId, product: "whatToWatch", version: "0.1.1")
         client = Plex(sessionConfiguration: .default, clientInfo: clientInfo)
+        loadUserFromDefaults()
     }
     
     /// Attempts to signin to Plex with the given `username` and `password`. Stores the returned `PlexUser` object.
@@ -55,11 +56,12 @@ class PlexClient: ObservableObject {
     ///   - password: The password associated with the Plex username.
     ///   - completionHandler: Provides either a `Void` success or a `PlexClientError` if sign-in fails.
     func signIn(username: String, password: String, completionHandler: @escaping (Result<Void, PlexClientError>) -> Void) {
-        client.request(Plex.ServiceRequest.SimpleAuthentication(username: username, password: password)) { [unowned self] result in
+        client.request(Plex.ServiceRequest.SimpleAuthentication(username: username, password: password)) { result in
             switch result {
             case let .success(response):
-                DispatchQueue.main.async {
-                    self.user = response.user
+                DispatchQueue.main.async { [unowned self] in
+                    user = response.user
+                    saveUserToDefaults(user!)
                 }
                 completionHandler(.success(()))
             case let .failure(error):

@@ -15,7 +15,7 @@ struct whatToWatchApp: App {
     // MARK: - View declaration.
     var body: some Scene {
         WindowGroup {
-            SignInView()
+            ContentView()
                 .environmentObject(plexClient)
         }
     }

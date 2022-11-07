@@ -58,7 +58,9 @@ class PlexClient: ObservableObject {
         client.request(Plex.ServiceRequest.SimpleAuthentication(username: username, password: password)) { [unowned self] result in
             switch result {
             case let .success(response):
-                self.user = response.user
+                DispatchQueue.main.async {
+                    self.user = response.user
+                }
                 completionHandler(.success(()))
             case let .failure(error):
                 print("Sign-in failed with the error: \(error.localizedDescription)")

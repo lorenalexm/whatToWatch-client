@@ -15,6 +15,7 @@
 		28D7095729132C290008A96D /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 28D7095629132C290008A96D /* AlertToast */; };
 		28D70959291344680008A96D /* RoundedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D70958291344680008A96D /* RoundedButtonView.swift */; };
 		28D7095B2913481C0008A96D /* PlexClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7095A2913481C0008A96D /* PlexClient.swift */; };
+		28ECF2EF2919ADA9008A4E57 /* ServerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		28D7095A2913481C0008A96D /* PlexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlexClient.swift; sourceTree = "<group>"; };
 		28D70961291362A60008A96D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		28D70962291364250008A96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				28D70958291344680008A96D /* RoundedButtonView.swift */,
 				280343FD291312EC00D48005 /* SignInView.swift */,
+				28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				28D7095B2913481C0008A96D /* PlexClient.swift in Sources */,
 				280343FE291312EC00D48005 /* SignInView.swift in Sources */,
+				28ECF2EF2919ADA9008A4E57 /* ServerSelectionView.swift in Sources */,
 				28D70959291344680008A96D /* RoundedButtonView.swift in Sources */,
 				280343EC2913117900D48005 /* whatToWatchApp.swift in Sources */,
 			);

@@ -16,6 +16,7 @@ enum PlexClientError: Error {
     case notSignedIn
     case noServersFound
     case noLibrariesFound
+    case noMediaFound
     case invalidServerAddress
 }
 
@@ -34,6 +35,8 @@ extension PlexClientError: LocalizedError {
             return "Unable to find any servers associated with the user."
         case .noLibrariesFound:
             return "Unable to find any media libraries within the server."
+        case .noMediaFound:
+            return "Unable to find any media within the library."
         case .invalidServerAddress:
             return "Server resource provided an invalid server address."
         }
@@ -78,25 +81,6 @@ class PlexClient: ObservableObject {
             }
         }
     }
-    
-    /// Attempts to save the `PlexUser` property to the `UserDefaults` to be loaded in the future.
-    /// - Parameter user: The `PlexUser` to be saved, should only be the class property used.
-    private func saveUserToDefaults(_ user: PlexUser) {
-        if let encoded = try? JSONEncoder().encode(user) {
-            UserDefaults.standard.set(encoded, forKey: "User")
-        }
-    }
-    
-    /// Attempts to load a `PlexUser` object from the `UserDefaults` and set its value to the class `user` property.
-    private func loadUserFromDefaults() {
-        guard let savedUser = UserDefaults.standard.object(forKey: "User") as? Data else {
-            print("Failed to retreive a PlexUser object from UserDefaults.")
-            return
-        }
-        
-        user = try? JSONDecoder().decode(PlexUser.self, from: savedUser)
-    }
-    
     
     /// Attempts to load the servers available to the user.
     /// - Parameter completionHandler: Provides either an array of `PlexResource` objects or a `PlexClientError` if unable to fetch.
@@ -150,6 +134,50 @@ class PlexClient: ObservableObject {
                 completionHandler(.failure(.failedClientRequest))
             }
         }
+    }
+    
+    /// Attempts to load all of the movies from a given library.
+    /// - Parameters:
+    ///   - library: The `PlexLibrary` to load the movies from.
+    ///   - completionHandler: Provides either an array of `PlexMediaItem` objects or a `PlexClientError` if unable to fetch.
+    func listMovies(from library: PlexLibrary, completionHandler: @escaping(Result<[PlexMediaItem], PlexClientError>) -> Void) {
+        guard let user else {
+            completionHandler(.failure(.notSignedIn))
+            return
+        }
+        guard !serverUrl.isEmpty else {
+            completionHandler(.failure(.noServersFound))
+            return
+        }
+        
+        client.request(Plex.Request.LibraryItems(key: library.key, mediaType: .movie), from: URL(string: serverUrl)!, token: user.authToken) { result in
+            switch result {
+            case .success(let response):
+                completionHandler(.success(response.mediaContainer.metadata))
+            case .failure(let error):
+                print("Fetching movies failed with the error: \(error.localizedDescription)")
+                completionHandler(.failure(.noMediaFound))
+            }
+        }
+    }
+    
+    // MARK: - Helper functions.
+    /// Attempts to save the `PlexUser` property to the `UserDefaults` to be loaded in the future.
+    /// - Parameter user: The `PlexUser` to be saved, should only be the class property used.
+    private func saveUserToDefaults(_ user: PlexUser) {
+        if let encoded = try? JSONEncoder().encode(user) {
+            UserDefaults.standard.set(encoded, forKey: "User")
+        }
+    }
+    
+    /// Attempts to load a `PlexUser` object from the `UserDefaults` and set its value to the class `user` property.
+    private func loadUserFromDefaults() {
+        guard let savedUser = UserDefaults.standard.object(forKey: "User") as? Data else {
+            print("Failed to retreive a PlexUser object from UserDefaults.")
+            return
+        }
+        
+        user = try? JSONDecoder().decode(PlexUser.self, from: savedUser)
     }
     
     /// Saves the server connection uri to a property for future use.

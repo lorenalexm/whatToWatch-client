@@ -15,6 +15,7 @@ enum PlexClientError: Error {
     case signInFailed
     case notSignedIn
     case noServersFound
+    case noLibrariesFound
     case invalidServerAddress
 }
 
@@ -31,6 +32,8 @@ extension PlexClientError: LocalizedError {
             return "User is not currently signed in to Plex."
         case .noServersFound:
             return "Unable to find any servers associated with the user."
+        case .noLibrariesFound:
+            return "Unable to find any media libraries within the server."
         case .invalidServerAddress:
             return "Server resource provided an invalid server address."
         }

@@ -128,15 +128,19 @@ class PlexClient: ObservableObject {
             completionHandler(.failure(.notSignedIn))
             return
         }
-        guard let serverAddress = server.publicAddress else {
-            completionHandler(.failure(.invalidServerAddress))
+        guard server.connections.count > 0 else {
+            completionHandler(.failure(.noServersFound))
             return
         }
         
-        client.request(Plex.Request.Libraries(), from: URL(string: serverAddress)!, token: user.authToken) { result in
+        client.request(Plex.Request.Libraries(), from: URL(string: server.connections[0].uri)!, token: user.authToken) { result in
             switch result {
             case .success(let response):
                 let libraries = response.mediaContainer.directory.filter { $0.type == .movie}
+                guard libraries.count > 0 else {
+                    completionHandler(.failure(.noLibrariesFound))
+                    return
+                }
                 completionHandler(.success(libraries))
                 
             case .failure(let error):

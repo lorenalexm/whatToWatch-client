@@ -7,12 +7,27 @@
 
 import SwiftUI
 
-struct RoundedButtonView: View {
+struct RoundedTapButtonView: View {
     // MARK: - Properties.
     let title: String
     var titleColor = Color.white
     var backgroundColor = Color.mint
     let onTappedHandler: () -> Void
+    
+    // MARK: - View declaration.
+    var body: some View {
+        RoundedButtonView(title: title, titleColor: titleColor, backgroundColor: backgroundColor)
+        .onTapGesture {
+            onTappedHandler()
+        }
+    }
+}
+
+struct RoundedButtonView: View {
+    // MARK: - Properties.
+    let title: String
+    var titleColor = Color.white
+    var backgroundColor = Color.mint
     
     // MARK: - View declaration.
     var body: some View {
@@ -26,14 +41,14 @@ struct RoundedButtonView: View {
                 .font(.title2)
         }
         .contentShape(Rectangle())
-        .onTapGesture {
-            onTappedHandler()
-        }
     }
 }
 
 struct RoundedButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedButtonView(title: "Button", onTappedHandler: {}).padding(10)
+        VStack {
+            RoundedButtonView(title: "Button").padding(10)
+            RoundedTapButtonView(title: "Tap Button", onTappedHandler: {}).padding(10)
+        }
     }
 }

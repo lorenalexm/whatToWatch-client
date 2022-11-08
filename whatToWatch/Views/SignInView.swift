@@ -54,7 +54,7 @@ struct SignInView: View {
             Divider()
                 .frame(height: 1)
                 .padding(.bottom)
-            RoundedButtonView(title: "Sign-in", backgroundColor: .mint) {
+            RoundedTapButtonView(title: "Sign-in", backgroundColor: .mint) {
                 guard !username.isEmpty else {
                     focused = .username
                     toastType = .error(.red)

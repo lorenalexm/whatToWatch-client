@@ -29,8 +29,8 @@ struct ServerSelectionView: View {
                 Text("Please choose the server that you intend to watch from.")
                     .padding(.bottom, 30)
                 ForEach(servers!, id: \.name) { server in
-                    RoundedButtonView(title: server.name) {
-                        print("Button clicked")
+                    NavigationLink(destination: LibrarySelectionView(server: server)) {
+                        RoundedButtonView(server.name)
                     }
                 }
             }

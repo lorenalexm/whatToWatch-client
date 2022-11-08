@@ -12,6 +12,7 @@
 		280343F32913117A00D48005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280343F22913117A00D48005 /* Preview Assets.xcassets */; };
 		280343FB291311EA00D48005 /* PlexKit in Frameworks */ = {isa = PBXBuildFile; productRef = 280343FA291311EA00D48005 /* PlexKit */; };
 		280343FE291312EC00D48005 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280343FD291312EC00D48005 /* SignInView.swift */; };
+		28B3A9332919F4860033CE65 /* CardStack in Frameworks */ = {isa = PBXBuildFile; productRef = 28B3A9322919F4860033CE65 /* CardStack */; };
 		28C590732919B381000D91B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C590722919B381000D91B2 /* ContentView.swift */; };
 		28C590752919C22C000D91B2 /* LibrarySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C590742919C22C000D91B2 /* LibrarySelectionView.swift */; };
 		28D7095729132C290008A96D /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 28D7095629132C290008A96D /* AlertToast */; };
@@ -42,6 +43,7 @@
 			files = (
 				280343FB291311EA00D48005 /* PlexKit in Frameworks */,
 				28D7095729132C290008A96D /* AlertToast in Frameworks */,
+				28B3A9332919F4860033CE65 /* CardStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +127,7 @@
 			packageProductDependencies = (
 				280343FA291311EA00D48005 /* PlexKit */,
 				28D7095629132C290008A96D /* AlertToast */,
+				28B3A9322919F4860033CE65 /* CardStack */,
 			);
 			productName = whatToWatch;
 			productReference = 280343E82913117900D48005 /* whatToWatch.app */;
@@ -157,6 +160,7 @@
 			packageReferences = (
 				280343F9291311EA00D48005 /* XCRemoteSwiftPackageReference "PlexKit" */,
 				28D7095529132C290008A96D /* XCRemoteSwiftPackageReference "AlertToast" */,
+				28B3A9312919F4860033CE65 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
 			);
 			productRefGroup = 280343E92913117900D48005 /* Products */;
 			projectDirPath = "";
@@ -403,6 +407,14 @@
 				minimumVersion = 1.6.0;
 			};
 		};
+		28B3A9312919F4860033CE65 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dadalar/SwiftUI-CardStackView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
 		28D7095529132C290008A96D /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elai950/AlertToast";
@@ -418,6 +430,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 280343F9291311EA00D48005 /* XCRemoteSwiftPackageReference "PlexKit" */;
 			productName = PlexKit;
+		};
+		28B3A9322919F4860033CE65 /* CardStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28B3A9312919F4860033CE65 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */;
+			productName = CardStack;
 		};
 		28D7095629132C290008A96D /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;

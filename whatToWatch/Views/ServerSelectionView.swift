@@ -7,11 +7,14 @@
 
 import SwiftUI
 import PlexKit
+import AlertToast
 
 struct ServerSelectionView: View {
     // MARK: - Properties.
     @EnvironmentObject private var plexClient: PlexClient
     @State private var servers: [PlexResource]?
+    @State private var toastShowing = false
+    @State private var toastSubTitle = ""
     
     // MARK: - View Declaration.
     var body: some View {
@@ -40,10 +43,14 @@ struct ServerSelectionView: View {
                 case .success(let servers):
                     self.servers = servers
                 case .failure(let error):
-                    print("Failed with the error: \(error.localizedDescription)")
+                    toastSubTitle = error.localizedDescription
+                    toastShowing = true
                 }
             }
         }
+        .toast(isPresenting: $toastShowing, duration: 2.0, alert: {
+            AlertToast(displayMode: .banner(.slide), type: .error(.red), title: "Error!", subTitle: toastSubTitle)
+        })
     }
 }
 

@@ -13,6 +13,7 @@
 		280343FB291311EA00D48005 /* PlexKit in Frameworks */ = {isa = PBXBuildFile; productRef = 280343FA291311EA00D48005 /* PlexKit */; };
 		280343FE291312EC00D48005 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280343FD291312EC00D48005 /* SignInView.swift */; };
 		28C590732919B381000D91B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C590722919B381000D91B2 /* ContentView.swift */; };
+		28C590752919C22C000D91B2 /* LibrarySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C590742919C22C000D91B2 /* LibrarySelectionView.swift */; };
 		28D7095729132C290008A96D /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 28D7095629132C290008A96D /* AlertToast */; };
 		28D70959291344680008A96D /* RoundedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D70958291344680008A96D /* RoundedButtonView.swift */; };
 		28D7095B2913481C0008A96D /* PlexClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7095A2913481C0008A96D /* PlexClient.swift */; };
@@ -26,6 +27,7 @@
 		280343F22913117A00D48005 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		280343FD291312EC00D48005 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		28C590722919B381000D91B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		28C590742919C22C000D91B2 /* LibrarySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySelectionView.swift; sourceTree = "<group>"; };
 		28D70958291344680008A96D /* RoundedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButtonView.swift; path = whatToWatch/Views/RoundedButtonView.swift; sourceTree = SOURCE_ROOT; };
 		28D7095A2913481C0008A96D /* PlexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlexClient.swift; sourceTree = "<group>"; };
 		28D70961291362A60008A96D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				280343FD291312EC00D48005 /* SignInView.swift */,
 				28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */,
 				28C590722919B381000D91B2 /* ContentView.swift */,
+				28C590742919C22C000D91B2 /* LibrarySelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				280343FE291312EC00D48005 /* SignInView.swift in Sources */,
 				28C590732919B381000D91B2 /* ContentView.swift in Sources */,
 				28ECF2EF2919ADA9008A4E57 /* ServerSelectionView.swift in Sources */,
+				28C590752919C22C000D91B2 /* LibrarySelectionView.swift in Sources */,
 				28D70959291344680008A96D /* RoundedButtonView.swift in Sources */,
 				280343EC2913117900D48005 /* whatToWatchApp.swift in Sources */,
 			);

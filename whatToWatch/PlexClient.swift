@@ -17,6 +17,7 @@ enum PlexClientError: Error {
     case noServersFound
     case noLibrariesFound
     case noMediaFound
+    case noImageFound
     case invalidServerAddress
 }
 
@@ -37,6 +38,8 @@ extension PlexClientError: LocalizedError {
             return "Unable to find any media libraries within the server."
         case .noMediaFound:
             return "Unable to find any media within the library."
+        case .noImageFound:
+            return "Unabled to find the requested image on the server."
         case .invalidServerAddress:
             return "Server resource provided an invalid server address."
         }
@@ -157,6 +160,31 @@ class PlexClient: ObservableObject {
             case .failure(let error):
                 print("Fetching movies failed with the error: \(error.localizedDescription)")
                 completionHandler(.failure(.noMediaFound))
+            }
+        }
+    }
+    
+    /// Attempts to fetch an image from the Plex server.
+    /// - Parameters:
+    ///   - path: The path provided by a `PlexMediaItem` pointing to an image.
+    ///   - completionHandler: Provided either a `Data` object representing the image or a `PlexClientError` if unable to fetch.
+    func fetchImage(path: String, completionHandler: @escaping(Result<Data, PlexClientError>) -> Void) {
+        guard let user else {
+            completionHandler(.failure(.notSignedIn))
+            return
+        }
+        guard !serverUrl.isEmpty else {
+            completionHandler(.failure(.noServersFound))
+            return
+        }
+        
+        client.request(Plex.Request.Image(path: path), from: URL(string: serverUrl)!, token: user.authToken) { result in
+            switch result {
+            case .success(let image):
+                completionHandler(.success(image))
+            case .failure(let error):
+                print("Fetching an image filed with the error: \(error.localizedDescription)")
+                completionHandler(.failure(.noImageFound))
             }
         }
     }

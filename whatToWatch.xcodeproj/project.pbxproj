@@ -28,7 +28,7 @@
 		280343FD291312EC00D48005 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		28C590722919B381000D91B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		28C590742919C22C000D91B2 /* LibrarySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySelectionView.swift; sourceTree = "<group>"; };
-		28D70958291344680008A96D /* RoundedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButtonView.swift; path = whatToWatch/Views/RoundedButtonView.swift; sourceTree = SOURCE_ROOT; };
+		28D70958291344680008A96D /* RoundedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButtonView.swift; path = whatToWatch/Views/Elements/RoundedButtonView.swift; sourceTree = SOURCE_ROOT; };
 		28D7095A2913481C0008A96D /* PlexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlexClient.swift; sourceTree = "<group>"; };
 		28D70961291362A60008A96D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		28D70962291364250008A96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -89,13 +89,21 @@
 		280343FC291312CE00D48005 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				28D70958291344680008A96D /* RoundedButtonView.swift */,
+				28B3A9302919F4150033CE65 /* Elements */,
 				280343FD291312EC00D48005 /* SignInView.swift */,
 				28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */,
 				28C590722919B381000D91B2 /* ContentView.swift */,
 				28C590742919C22C000D91B2 /* LibrarySelectionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		28B3A9302919F4150033CE65 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				28D70958291344680008A96D /* RoundedButtonView.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -44,6 +44,7 @@ class PlexClient: ObservableObject {
     // MARK: - Properties.
     @Published var client: Plex
     @Published var user: PlexUser?
+    private var serverUrl = ""
     
     // MARK: - Functions.
     /// Creates and configures the `Plex` object to be used for requests.
@@ -121,22 +122,20 @@ class PlexClient: ObservableObject {
         }
     }
     
-    
     /// Attempts to load the libraries from a specific server.
     /// - Parameters:
-    ///   - server: The `PlexResource` representing the server
     ///   - completionHandler: Provides either an array of `PlexLibrary` objects or a `PlexClientError` if unable to fetch.
-    func listLibraries(from server: PlexResource, completionHandler: @escaping (Result<[PlexLibrary], PlexClientError>) -> Void) {
+    func listLibraries(completionHandler: @escaping (Result<[PlexLibrary], PlexClientError>) -> Void) {
         guard let user else {
             completionHandler(.failure(.notSignedIn))
             return
         }
-        guard server.connections.count > 0 else {
+        guard !serverUrl.isEmpty else {
             completionHandler(.failure(.noServersFound))
             return
         }
         
-        client.request(Plex.Request.Libraries(), from: URL(string: server.connections[0].uri)!, token: user.authToken) { result in
+        client.request(Plex.Request.Libraries(), from: URL(string: serverUrl)!, token: user.authToken) { result in
             switch result {
             case .success(let response):
                 let libraries = response.mediaContainer.directory.filter { $0.type == .movie}
@@ -151,5 +150,15 @@ class PlexClient: ObservableObject {
                 completionHandler(.failure(.failedClientRequest))
             }
         }
+    }
+    
+    /// Saves the server connection uri to a property for future use.
+    /// - Parameter server: The server to capture the uri from.
+    func saveUrlTo(server: PlexResource) {
+        guard server.connections.count > 0 else {
+            print("No server connection found to save.")
+            return
+        }
+        serverUrl = server.connections[0].uri
     }
 }

@@ -15,7 +15,6 @@ struct LibrarySelectionView: View {
     @State private var libraries: [PlexLibrary]?
     @State private var toastShowing = false
     @State private var toastSubTitle = ""
-    let server: PlexResource?
     
     // MARK: - View Declaration.
     var body: some View {
@@ -37,11 +36,7 @@ struct LibrarySelectionView: View {
         .navigationTitle("Library Selection")
         .padding(.horizontal, 40)
         .onAppear() {
-            guard let server else {
-                return
-            }
-            
-            plexClient.listLibraries(from: server) { result in
+            plexClient.listLibraries() { result in
                 switch result {
                 case .success(let libraries):
                     self.libraries = libraries
@@ -59,6 +54,6 @@ struct LibrarySelectionView: View {
 
 struct LibrarySelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        LibrarySelectionView(server: nil)
+        LibrarySelectionView()
     }
 }

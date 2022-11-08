@@ -29,9 +29,11 @@ struct ServerSelectionView: View {
                 Text("Please choose the server that you intend to watch from.")
                     .padding(.bottom, 30)
                 ForEach(servers!, id: \.name) { server in
-                    NavigationLink(destination: LibrarySelectionView(server: server)) {
+                    NavigationLink(destination: LibrarySelectionView()) {
                         RoundedButtonView(title: server.name)
-                    }
+                    }.simultaneousGesture(TapGesture().onEnded() {
+                        plexClient.saveUrlTo(server: server)
+                    })
                 }
             }
         }

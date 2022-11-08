@@ -1,5 +1,5 @@
 //
-//  RoundedButtonView.swift
+//  RoundedButton.swift
 //  whatToWatch
 //
 //  Created by Alex Loren on 11/2/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RoundedTapButtonView: View {
+struct RoundedTapButton: View {
     // MARK: - Properties.
     let title: String
     var titleColor = Color.white
@@ -16,14 +16,14 @@ struct RoundedTapButtonView: View {
     
     // MARK: - View declaration.
     var body: some View {
-        RoundedButtonView(title: title, titleColor: titleColor, backgroundColor: backgroundColor)
+        RoundedButton(title: title, titleColor: titleColor, backgroundColor: backgroundColor)
         .onTapGesture {
             onTappedHandler()
         }
     }
 }
 
-struct RoundedButtonView: View {
+struct RoundedButton: View {
     // MARK: - Properties.
     let title: String
     var titleColor = Color.white
@@ -47,8 +47,8 @@ struct RoundedButtonView: View {
 struct RoundedButtonView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            RoundedButtonView(title: "Button").padding(10)
-            RoundedTapButtonView(title: "Tap Button", onTappedHandler: {}).padding(10)
+            RoundedButton(title: "Button").padding(10)
+            RoundedTapButton(title: "Tap Button", onTappedHandler: {}).padding(10)
         }
     }
 }

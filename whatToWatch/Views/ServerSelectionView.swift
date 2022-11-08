@@ -30,7 +30,7 @@ struct ServerSelectionView: View {
                     .padding(.bottom, 30)
                 ForEach(servers!, id: \.name) { server in
                     NavigationLink(destination: LibrarySelectionView()) {
-                        RoundedButtonView(title: server.name)
+                        RoundedButton(title: server.name)
                     }.simultaneousGesture(TapGesture().onEnded() {
                         plexClient.saveUrlTo(server: server)
                     })

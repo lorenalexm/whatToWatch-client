@@ -51,6 +51,7 @@ class PlexClient: ObservableObject {
     @Published var client: Plex
     @Published var user: PlexUser?
     private var serverUrl = ""
+    private(set) var selectedLibrary: PlexLibrary?
     
     // MARK: - Functions.
     /// Creates and configures the `Plex` object to be used for requests.
@@ -216,5 +217,11 @@ class PlexClient: ObservableObject {
             return
         }
         serverUrl = server.connections[0].uri
+    }
+    
+    /// Saves a reference to the given `PlexLibrary` for future use.
+    /// - Parameter library: The `PlexLibrary` reference to be saved.
+    func saveLibrarySelection(_ library: PlexLibrary) {
+        selectedLibrary = library
     }
 }

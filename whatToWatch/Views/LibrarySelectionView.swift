@@ -26,7 +26,7 @@ struct LibrarySelectionView: View {
                     .font(.caption)
                     .padding(.top)
             } else {
-                Text("Please choose the library that you intend to watch from.")
+                Text("There must be a load of movies somewhere. Time to pick what library you want to watch from.")
                     .padding(.bottom, 30)
                 ForEach(libraries!, id: \.title!) { library in
                     Text(library.title!)

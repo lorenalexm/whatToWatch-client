@@ -26,7 +26,7 @@ struct ServerSelectionView: View {
                     .font(.caption)
                     .padding(.top)
             } else {
-                Text("Please choose the server that you intend to watch from.")
+                Text("Your server, or someone elses, it doesn't matter. We just need to know where to look for the movie library.")
                     .padding(.bottom, 30)
                 ForEach(servers!, id: \.name) { server in
                     NavigationLink(destination: LibrarySelectionView()) {

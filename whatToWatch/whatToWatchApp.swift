@@ -6,17 +6,16 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 
 @main
 struct whatToWatchApp: App {
-    // MARK: - Properties.
-    private let plexClient = PlexClient()
-    
     // MARK: - View declaration.
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(plexClient)
+            Router {
+                RootView()
+            }
         }
     }
 }

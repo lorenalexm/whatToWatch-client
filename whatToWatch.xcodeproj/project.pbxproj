@@ -21,6 +21,7 @@
 		28D70959291344680008A96D /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D70958291344680008A96D /* RoundedButton.swift */; };
 		28D7095B2913481C0008A96D /* PlexClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7095A2913481C0008A96D /* PlexClient.swift */; };
 		28DAC105291B4B0900590ED0 /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 28DAC104291B4B0900590ED0 /* SwiftUIRouter */; };
+		28DAC107291B4B6700590ED0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DAC106291B4B6700590ED0 /* RootView.swift */; };
 		28ECF2EF2919ADA9008A4E57 /* ServerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		28D7095A2913481C0008A96D /* PlexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlexClient.swift; sourceTree = "<group>"; };
 		28D70961291362A60008A96D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		28D70962291364250008A96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		28DAC106291B4B6700590ED0 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		28ECF2EE2919ADA9008A4E57 /* ServerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				28C590722919B381000D91B2 /* ContentView.swift */,
 				28C590742919C22C000D91B2 /* LibrarySelectionView.swift */,
 				28B3A9342919F4A10033CE65 /* MovieSwipeView.swift */,
+				28DAC106291B4B6700590ED0 /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				280343FE291312EC00D48005 /* SignInView.swift in Sources */,
 				28B3A9352919F4A10033CE65 /* MovieSwipeView.swift in Sources */,
 				28C590732919B381000D91B2 /* ContentView.swift in Sources */,
+				28DAC107291B4B6700590ED0 /* RootView.swift in Sources */,
 				28ECF2EF2919ADA9008A4E57 /* ServerSelectionView.swift in Sources */,
 				28C590752919C22C000D91B2 /* LibrarySelectionView.swift in Sources */,
 				28D70959291344680008A96D /* RoundedButton.swift in Sources */,

@@ -29,7 +29,9 @@ struct LibrarySelectionView: View {
                 Text("There must be a load of movies somewhere. Time to pick what library you want to watch from.")
                     .padding(.bottom, 30)
                 ForEach(libraries!, id: \.title!) { library in
-                    Text(library.title!)
+                    NavigationLink(destination: MovieSwipeView(library: library)) {
+                        RoundedButton(title: library.title ?? "Unnamed Library")
+                    }
                 }
             }
         }

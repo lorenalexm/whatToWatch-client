@@ -35,6 +35,15 @@
         "revision" : "9b45ef54b9e7bfbee46fe4a5982ecf449ac2b47c",
         "version" : "0.0.6"
       }
+    },
+    {
+      "identity" : "swiftuirouter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/frzi/SwiftUIRouter",
+      "state" : {
+        "revision" : "cd8c2bb32019082075456afa9521ec3ec7499ffa",
+        "version" : "1.3.2"
+      }
     }
   ],
   "version" : 2

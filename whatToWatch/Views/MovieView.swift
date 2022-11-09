@@ -1,5 +1,5 @@
 //
-//  MovieSwipeView.swift
+//  MovieView.swift
 //  whatToWatch
 //
 //  Created by Alex Loren on 11/7/22.
@@ -9,7 +9,7 @@ import SwiftUI
 import PlexKit
 import CardStack
 
-struct MovieSwipeView: View {
+struct MovieView: View {
     // MARK: - Properties
     @EnvironmentObject private var plexClient: PlexClient
     @State private var movies: [PlexMediaItem]?
@@ -37,11 +37,13 @@ struct MovieSwipeView: View {
                         Text("The time has come, start swiping! You know the drill. Once there has been a match with everyone else, we will let you know which movie was chosen!")
                             .padding(.bottom, 30)
                     }
+                    
                     CardStack(direction: LeftRight.direction, data: movies!, id: \.key, onSwipe: { movie, direction in
                         print("Swiped \(movie.title!) to \(direction)")
                     }, content: { movie, _, _ in
                         MovieCard(movie: movie)
                     })
+                    .environment(\.cardStackConfiguration, CardStackConfiguration(maxVisibleCards: 2, swipeThreshold: 0.35, animation: .easeInOut))
                 }
             }
         }
@@ -67,6 +69,6 @@ struct MovieSwipeView: View {
 
 struct MovieSwipeView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieSwipeView(library: nil)
+        MovieView(library: nil)
     }
 }

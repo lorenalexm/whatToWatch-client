@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 import AlertToast
 
 struct SignInView: View {
     // MARK: - Properties.
     @EnvironmentObject private var plexClient: PlexClient
+    @EnvironmentObject private var navigator: Navigator
     @FocusState private var focused: Fields?
     @State private var username = ""
     @State private var password = ""
@@ -74,7 +76,7 @@ struct SignInView: View {
                 plexClient.signIn(username: username, password: password) { result in
                     switch result {
                     case .success(_):
-                        print("Successfully signed in!")
+                        navigator.navigate("/selections", replace: true)
                     case .failure(let error):
                         toastType = .error(.red)
                         toastTitle = "Sign-in error!"

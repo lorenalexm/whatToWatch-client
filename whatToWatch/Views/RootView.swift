@@ -16,6 +16,18 @@ struct RootView: View {
     // MARK: - View declaration.
     var body: some View {
         SwitchRoutes {
+            Route("movies") {
+                if plexClient.selectedLibrary == nil {
+                    Navigate(to: "selections", replace: true)
+                } else {
+                    MovieView(library: plexClient.selectedLibrary!)
+                        .environmentObject(plexClient)
+                }
+            }
+            Route("selections") {
+                RootSelectionView()
+                    .environmentObject(plexClient)
+            }
             Route {
                 SignInView()
                     .environmentObject(plexClient)

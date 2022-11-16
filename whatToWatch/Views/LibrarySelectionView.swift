@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 import PlexKit
 import AlertToast
 
 struct LibrarySelectionView: View {
     // MARK: - Properties.
     @EnvironmentObject private var plexClient: PlexClient
+    @EnvironmentObject private var navigator: Navigator
     @State private var libraries: [PlexLibrary]?
     @State private var toastShowing = false
     @State private var toastSubTitle = ""
@@ -29,8 +31,9 @@ struct LibrarySelectionView: View {
                 Text("There must be a load of movies somewhere. Time to pick what library you want to watch from.")
                     .padding(.bottom, 30)
                 ForEach(libraries!, id: \.title!) { library in
-                    NavigationLink(destination: MovieSwipeView(library: library)) {
-                        RoundedButton(title: library.title ?? "Unnamed Library")
+                    RoundedTapButton(title: library.title ?? "Unnamed Library") {
+                        plexClient.saveLibrarySelection(library)
+                        navigator.navigate("/movies", replace: true)
                     }
                 }
             }
